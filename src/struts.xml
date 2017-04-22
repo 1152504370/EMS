@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="login" namespace="/" extends="struts-default" >
+        <action name="login" class="struts.LoginAction">
+            <result name="success">/jsp/main.jsp</result>
+            <result name="redirect">/jsp/redirect.jsp</result>
+            <result name="login">/jsp/login.jsp</result>
+            <result name="exit">/jsp/login.jsp</result>
+        </action>
+        <action name="firstpage" class="struts.FirstPageAction" method="show">
+            <result name="success">/jsp/welcome.jsp</result>
+        </action>
+        <action name="aboutSystem" class="struts.AboutSystemAction" method="show">
+            <result name="success">/jsp/aboutSystem.jsp</result>
+        </action>
+    </package>
+        <include file="struts_config/struts_config_user.xml"></include>
+        <include file="struts_config/struts_config_student.xml"></include>
+        <include file="struts_config/struts_config_company.xml"></include>
+        <include file="struts_config/struts_config_recruit.xml"></include>
+        
+</struts>    

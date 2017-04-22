@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <package name="studentr" namespace="/" extends="struts-default">
+        <!-- 学生信息查询 -->
+        
+        <action name="student" class="struts.student.StudentAction" method="list">
+            <result name="list">/jsp/student/studentList.jsp</result>
+        </action>
+        <action name="studentedit" class="struts.student.StudentAction" method="toedit">
+            <result name="toedit">/jsp/student/studentEdit.jsp</result>
+        </action>
+        <action name="studentsave" class="struts.student.StudentAction" method="saveedit">
+            <result name="success">/jsp/student/studentList.jsp</result>
+            <result name="error">/jsp/student/studentEdit.jsp</result>
+            <result name="forback">/jsp/welcome.jsp</result>
+        </action>
+        <action name="studenteditme" class="struts.student.StudentAction" method="toeditme">
+            <result name="toedit">/jsp/student/studentEdit.jsp</result>
+        </action>
+
+    </package>
+    <package name="ajaxstudent"  extends="json-default">
+       <action name="jsonAjaxstudent" class="struts.student.StudentAction" method="delete">
+       <result type="json"></result>
+       </action>
+    </package>
+    
+
+</struts>    

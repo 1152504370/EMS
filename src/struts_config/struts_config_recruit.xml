@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+    <package name="recruitr" namespace="/" extends="struts-default">
+        <!-- 招聘求职信息查询 -->
+        
+        <action name="recruit" class="struts.recruit.RecruitAction" method="list">
+            <result name="list">/jsp/recruit/recruitList.jsp</result>
+        </action>
+        <action name="recruitapply" class="struts.recruit.RecruitAction" method="listapply">
+            <result name="list">/jsp/recruit/applyList.jsp</result>
+        </action>
+        <action name="recruitme" class="struts.recruit.RecruitAction" method="listMy">
+            <result name="list">/jsp/recruit/applyList.jsp</result>
+        </action>
+        <action name="recruitedit" class="struts.recruit.RecruitAction" method="toedit">
+            <result name="toedit">/jsp/recruit/recruitEdit.jsp</result>
+        </action>
+        <action name="recruitsave" class="struts.recruit.RecruitAction" method="saveedit">
+            <result name="success">/jsp/recruit/recruitList.jsp</result>
+            <result name="error">/jsp/recruit/recruitEdit.jsp</result>
+        </action>
+
+    </package>
+    <package name="ajaxrecruit"  extends="json-default">
+       <action name="jsonAjaxrecruit" class="struts.recruit.RecruitAction" method="delete">
+       <result type="json"></result>
+       </action>
+       <action name="jsonAjaxrecruit" class="struts.recruit.RecruitAction" method="seekJob">
+       <result type="json"></result>
+       </action>
+       <action name="jsonAjaxrecruit" class="struts.recruit.RecruitAction" method="revokeapp">
+       <result type="json"></result>
+       </action>
+       <action name="jsonAjaxrecruit" class="struts.recruit.RecruitAction" method="dealApply">
+       <result type="json"></result>
+       </action>
+    </package>
+    
+</struts>   

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="user" namespace="/" extends="struts-default">
+		<!-- 用户信息查询 -->
+		
+		<action name="user" class="struts.user.UserAction" method="list">
+            <result name="list">/jsp/user/userList.jsp</result>
+        </action>
+        <action name="useredit" class="struts.user.UserAction" method="toedit">
+            <result name="toedit">/jsp/user/userEdit.jsp</result>
+        </action>
+        <action name="usersave" class="struts.user.UserAction" method="saveedit">
+            <result name="success">/jsp/user/userList.jsp</result>
+            <result name="error">/jsp/user/userEdit.jsp</result>
+            <result name="exit">/jsp/login.jsp</result>
+        </action>
+        <action name="usereditme" class="struts.user.UserAction" method="toeditme">
+            <result name="toedit">/jsp/user/userEdit.jsp</result>
+            <result name="exit">/jsp/login.jsp</result>
+        </action>
+
+	</package>
+	<package name="ajax"  extends="json-default">
+	   <action name="jsonAjax" class="struts.user.UserAction" method="delete">
+	   <result type="json"></result>
+	   </action>
+	</package>
+	
+
+</struts>    
